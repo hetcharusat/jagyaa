@@ -1,0 +1,29 @@
+{
+  "drives": [
+    {
+      "name": "drive1",
+      "remote_name": "gdrive1",
+      "enabled": true,
+      "description": "Primary Google Drive"
+    },
+    {
+      "name": "drive2",
+      "remote_name": "gdrive2",
+      "enabled": true,
+      "description": "Secondary Google Drive"
+    },
+    {
+      "name": "drive3",
+      "remote_name": "gdrive3",
+      "enabled": false,
+      "description": "Backup Google Drive"
+    }
+  ],
+  "settings": {
+    "chunk_size_mb": 100,
+    "max_concurrent_uploads": 3,
+    "upload_folder": "MultiDriveSplit",
+    "manifest_folder": "manifests",
+    "temp_folder": "chunks"
+  }
+}
