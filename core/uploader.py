@@ -70,33 +70,31 @@ class Uploader:
         
         print(f"Starting upload of: {file_path_obj.name}")
         
-        # Stage 1: Calculate file hash
+        # OPTIMIZED: Skip separate file hashing step - combine with chunking!
+        # Stage 1: Split file into chunks (also calculates file hash in same pass)
         if progress_callback:
-            progress_callback("Hashing file", 0, 1)
-        
-        file_hash = self.chunker.calculate_file_hash(file_path)
-        print(f"File hash: {file_hash}")
-        
-        # Stage 2: Split file into chunks
-        if progress_callback:
-            progress_callback("Splitting file", 0, 1)
+            progress_callback("Chunking file", 0, 1)
         
         temp_folder = Path(self.config.get_temp_folder())
         temp_folder.mkdir(parents=True, exist_ok=True)
         
         def split_progress(current, total):
             if progress_callback:
-                progress_callback("Splitting file", current, total)
+                progress_callback("Chunking file", current, total)
         
-        chunks_info = self.chunker.split_file(
+        # NEW: split_file now returns (chunks_info, file_hash)
+        chunks_info, file_hash = self.chunker.split_file(
             file_path,
             str(temp_folder),
             split_progress
         )
         
+        print(f"File hash: {file_hash}")
+
+        
         print(f"Created {len(chunks_info)} chunks")
         
-        # Stage 3: Create manifest
+        # Stage 2: Create manifest
         if progress_callback:
             progress_callback("Creating manifest", 0, 1)
         
@@ -129,7 +127,8 @@ class Uploader:
         
         print(f"Created manifest: {manifest_id}")
         
-        # Stage 4: Upload chunks
+        # Stage 3: Upload chunks (START IMMEDIATELY - don't wait!)
+        print(f"[TIMING] Starting upload immediately...")
         if progress_callback:
             progress_callback("Uploading chunks", 0, len(chunks_info))
         
@@ -273,12 +272,34 @@ class Uploader:
         # Update chunk status to uploading
         self.manifest.update_chunk_status(manifest_id, chunk_index, "uploading")
         
-        # Upload the chunk
-        success, error_msg = self.rclone.upload_file(
-            local_path,
-            remote_name,
-            remote_path
-        )
+        # Upload the chunk with retry logic for rate limits
+        import time
+        start_time = time.time()
+        print(f"[TIMING] Starting upload of chunk {chunk_index}...")
+        
+        max_retries = 3
+        retry_delay = 2  # Start with 2 seconds
+        
+        for attempt in range(max_retries):
+            success, error_msg = self.rclone.upload_file(
+                local_path,
+                remote_name,
+                remote_path
+            )
+            
+            if success:
+                break
+            
+            # Check if it's a rate limit error
+            if "rate limit" in error_msg.lower() and attempt < max_retries - 1:
+                print(f"[RETRY] Rate limit hit, waiting {retry_delay}s before retry {attempt + 2}/{max_retries}...")
+                time.sleep(retry_delay)
+                retry_delay *= 2  # Exponential backoff (2s, 4s, 8s)
+            else:
+                break  # Other error or last attempt
+        
+        elapsed = time.time() - start_time
+        print(f"[TIMING] Chunk {chunk_index} upload completed in {elapsed:.2f}s")
         
         if success:
             # Update chunk status to uploaded

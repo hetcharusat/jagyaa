@@ -1,6 +1,7 @@
 """
 File Chunking Module
 Handles splitting files into chunks and merging them back
+OPTIMIZED VERSION: Fast chunking with combined hash calculation
 """
 import os
 import hashlib
@@ -9,7 +10,7 @@ from typing import List, Tuple, Callable, Optional
 
 
 class FileChunker:
-    """Handles file splitting and merging operations"""
+    """Handles file splitting and merging operations - OPTIMIZED"""
     
     def __init__(self, chunk_size_mb: int = 100):
         """
@@ -25,9 +26,9 @@ class FileChunker:
         file_path: str,
         output_dir: str,
         progress_callback: Optional[Callable[[int, int], None]] = None
-    ) -> List[Tuple[str, str, int]]:
+    ) -> Tuple[List[Tuple[str, str, int]], str]:
         """
-        Split a file into chunks
+        Split a file into chunks - OPTIMIZED: Single-pass chunking + hashing
         
         Args:
             file_path: Path to the file to split
@@ -35,7 +36,9 @@ class FileChunker:
             progress_callback: Optional callback(current_chunk, total_chunks)
             
         Returns:
-            List of tuples (chunk_path, sha256_hash, chunk_size)
+            Tuple of (chunk_info_list, file_hash)
+            chunk_info_list: List of tuples (chunk_path, sha256_hash, chunk_size)
+            file_hash: SHA-256 hash of entire file
         """
         file_path = Path(file_path)
         output_dir = Path(output_dir)
@@ -45,31 +48,37 @@ class FileChunker:
         total_chunks = (file_size + self.chunk_size - 1) // self.chunk_size
         
         chunks_info = []
+        file_hasher = hashlib.sha256()  # Hash entire file while chunking
         
         with open(file_path, 'rb') as f:
             for chunk_index in range(total_chunks):
                 # Read chunk
                 chunk_data = f.read(self.chunk_size)
                 
+                # Update file hash (single pass - no separate file hashing!)
+                file_hasher.update(chunk_data)
+                
                 # Generate chunk filename
                 chunk_filename = f"{file_path.stem}.part{chunk_index:04d}{file_path.suffix}.chunk"
                 chunk_path = output_dir / chunk_filename
                 
-                # Calculate SHA-256 hash
-                sha256_hash = hashlib.sha256(chunk_data).hexdigest()
+                # Calculate chunk SHA-256 hash
+                chunk_hash = hashlib.sha256(chunk_data).hexdigest()
                 
                 # Write chunk to file
                 with open(chunk_path, 'wb') as chunk_file:
                     chunk_file.write(chunk_data)
                 
                 chunk_size = len(chunk_data)
-                chunks_info.append((str(chunk_path), sha256_hash, chunk_size))
+                chunks_info.append((str(chunk_path), chunk_hash, chunk_size))
                 
                 # Call progress callback
                 if progress_callback:
                     progress_callback(chunk_index + 1, total_chunks)
         
-        return chunks_info
+        # Return both chunk info AND file hash (calculated during chunking)
+        file_hash = file_hasher.hexdigest()
+        return chunks_info, file_hash
     
     def merge_chunks(
         self,

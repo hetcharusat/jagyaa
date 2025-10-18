@@ -1,307 +1,611 @@
-# 🚀 Multi-Google Drive Split Uploader
+# 🌐 Multi-Drive Cloud Manager# 🚀 Multi-Google Drive Split Uploader
 
-A lightweight desktop application that uploads and downloads large files across **multiple Google Drive accounts** using intelligent chunking and distribution.
 
-![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
-![Python](https://img.shields.io/badge/python-3.8%2B-green)
+
+[![Version](https://img.shields.io/badge/version-3.0.4-blue.svg)](https://github.com/hetcharusat/jagyaa/releases)A lightweight desktop application that uploads and downloads large files across **multiple Google Drive accounts** using intelligent chunking and distribution.
+
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+[![Python](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
+
+[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)![Python](https://img.shields.io/badge/python-3.8%2B-green)
+
 ![License](https://img.shields.io/badge/license-MIT-orange)
+
+A powerful, beautiful desktop application for managing multiple cloud storage accounts with intelligent chunking, upload/download queues, and seamless OAuth authentication.
 
 ## ✨ Features
 
+![Multi-Drive Cloud Manager](https://via.placeholder.com/800x450/0d47a1/ffffff?text=Multi-Drive+Cloud+Manager)
+
 - 📦 **Intelligent File Chunking** - Automatically split large files into configurable chunks
-- ☁️ **Multi-Drive Distribution** - Distribute chunks across multiple Google Drive accounts
+
+---- ☁️ **Multi-Drive Distribution** - Distribute chunks across multiple Google Drive accounts
+
 - 🔒 **Integrity Verification** - SHA-256 hashing ensures data integrity
-- ⚡ **Concurrent Operations** - Parallel upload/download for maximum speed
+
+## 📥 Download- ⚡ **Concurrent Operations** - Parallel upload/download for maximum speed
+
 - 🎯 **Drag & Drop Interface** - Simple and intuitive GUI
-- 📊 **Progress Tracking** - Real-time progress bars and status updates
+
+<div align="center">- 📊 **Progress Tracking** - Real-time progress bars and status updates
+
 - 🔄 **Pause/Resume** - Cancel operations at any time
-- 📝 **Manifest System** - JSON-based metadata for easy file reconstruction
 
-## 🏗️ Architecture
+### ⚡ Latest Release: v3.0.4 (January 19, 2025)- 📝 **Manifest System** - JSON-based metadata for easy file reconstruction
 
-```
+
+
+<a href="https://github.com/hetcharusat/jagyaa/releases/download/v3.0.4/MultiDriveCloudManager_Setup_3.0.4.exe">## 🏗️ Architecture
+
+  <img src="https://img.shields.io/badge/Download-Setup%20(51.5%20MB)-brightgreen?style=for-the-badge&logo=windows&logoColor=white" alt="Download Installer" height="60">
+
+</a>```
+
 ┌─────────────────┐
-│   PySide6 GUI   │  ← User Interface
+
+**No admin rights required • Clean installation • All features included**│   PySide6 GUI   │  ← User Interface
+
 ├─────────────────┤
-│  Uploader/      │  ← Business Logic
+
+</div>│  Uploader/      │  ← Business Logic
+
 │  Downloader     │
-├─────────────────┤
+
+---├─────────────────┤
+
 │  File Chunker   │  ← Core Operations
-│  Manifest Mgr   │
+
+## ✨ Features│  Manifest Mgr   │
+
 ├─────────────────┤
-│ Rclone Manager  │  ← Backend Integration
-└─────────────────┘
-         ↓
-   Google Drives
-```
+
+### 🚀 Core Capabilities│ Rclone Manager  │  ← Backend Integration
+
+- **Multi-Account Management**: Connect unlimited Google Drive accounts└─────────────────┘
+
+- **Intelligent File Chunking**: Automatically split large files for reliable uploads         ↓
+
+- **Upload Queue System**: Queue multiple files with progress tracking   Google Drives
+
+- **Download Queue**: Download files directly from cloud with live progress```
+
+- **Multi-Select Operations**: Select and manage multiple files at once
 
 ## 📋 Prerequisites
 
-### 1. Python 3.8 or Higher
-```powershell
-python --version
-```
+### 🎨 Modern Interface
 
-### 2. Rclone
-Download and install from [rclone.org](https://rclone.org/downloads/)
+- **Beautiful Material Design**: Clean, intuitive Flet-based UI### 1. Python 3.8 or Higher
 
-**Windows Installation:**
-```powershell
+- **Dark/Light Themes**: Switch between themes on the fly```powershell
+
+- **Real-time Progress**: Live upload/download progress with speed indicatorspython --version
+
+- **Library Cards View**: Visual file browsing with metadata```
+
+
+
+### 🔐 Authentication & Security### 2. Rclone
+
+- **OAuth 2.0 Integration**: Secure Google Drive authenticationDownload and install from [rclone.org](https://rclone.org/downloads/)
+
+- **Custom OAuth Support**: Use your own Google API credentials
+
+- **Token Management**: Automatic token refresh and error handling**Windows Installation:**
+
+- **No Config Bundling**: Fresh start on every installation```powershell
+
 # Download rclone and add to PATH, or:
-winget install Rclone.Rclone
+
+### 💪 Advanced Featureswinget install Rclone.Rclone
+
+- **Retry System**: Automatic retry for failed uploads```
+
+- **Drive Health Monitoring**: Real-time storage statistics
+
+- **Permanent Delete**: Bypass trash for immediate deletionVerify installation:
+
+- **Wipe Data**: Clean uploaded files from cloud```powershell
+
+- **Smart Preview**: Preview files before downloadingrclone version
+
 ```
 
-Verify installation:
-```powershell
-rclone version
-```
+---
 
 ### 3. Google Drive Accounts
-You'll need at least 2-3 Google Drive accounts configured in rclone.
 
-## 🚀 Quick Start
+## 🖼️ ScreenshotsYou'll need at least 2-3 Google Drive accounts configured in rclone.
+
+
+
+<details>## 🚀 Quick Start
+
+<summary>📸 Click to view screenshots</summary>
 
 ### Step 1: Clone or Extract Project
-```powershell
-cd C:\Users\hetp2\OneDrive\Desktop\jagyaa
+
+### Dashboard```powershell
+
+![Dashboard View](https://via.placeholder.com/800x450/1976d2/ffffff?text=Dashboard+View)cd C:\Users\hetp2\OneDrive\Desktop\jagyaa
+
 ```
 
-### Step 2: Create Virtual Environment
+### Upload Queue
+
+![Upload Queue](https://via.placeholder.com/800x450/388e3c/ffffff?text=Upload+Queue)### Step 2: Create Virtual Environment
+
 ```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
+
+### Library Browserpython -m venv venv
+
+![Library Browser](https://via.placeholder.com/800x450/f57c00/ffffff?text=Library+Browser).\venv\Scripts\Activate.ps1
+
 ```
+
+</details>
 
 ### Step 3: Install Dependencies
-```powershell
+
+---```powershell
+
 pip install -r requirements.txt
-```
 
-### Step 4: Configure Rclone Remotes
+## 🔧 Installation```
 
-Run rclone configuration:
-```powershell
-rclone config
-```
 
-**Add each Google Drive:**
+
+### Option 1: Installer (Recommended)### Step 4: Configure Rclone Remotes
+
+
+
+1. **Download** the latest installer from the [Releases page](https://github.com/hetcharusat/jagyaa/releases)Run rclone configuration:
+
+2. **Run** `MultiDriveCloudManager_Setup_3.0.4.exe````powershell
+
+3. **Follow** the installation wizardrclone config
+
+4. **Launch** from Start Menu or Desktop shortcut```
+
+
+
+**Installation Path:** `%LOCALAPPDATA%\MultiDriveCloudManager\`**Add each Google Drive:**
+
 1. Type `n` for new remote
-2. Name it (e.g., `gdrive1`, `gdrive2`, `gdrive3`)
+
+### Option 2: Run from Source2. Name it (e.g., `gdrive1`, `gdrive2`, `gdrive3`)
+
 3. Choose `Google Drive` (option 15)
-4. Leave Client ID blank (press Enter)
-5. Leave Client Secret blank (press Enter)
-6. Choose scope `1` (Full access)
-7. Leave Root Folder ID blank
+
+```bash4. Leave Client ID blank (press Enter)
+
+# Clone the repository5. Leave Client Secret blank (press Enter)
+
+git clone https://github.com/hetcharusat/jagyaa.git6. Choose scope `1` (Full access)
+
+cd jagyaa7. Leave Root Folder ID blank
+
 8. Leave Service Account File blank
-9. Edit advanced config? `n`
-10. Auto config? `y` (browser will open)
-11. Authenticate with your Google account
+
+# Create virtual environment9. Edit advanced config? `n`
+
+python -m venv .venv10. Auto config? `y` (browser will open)
+
+.venv\Scripts\activate11. Authenticate with your Google account
+
 12. Configure as Team Drive? `n`
-13. Confirm settings
+
+# Install dependencies13. Confirm settings
+
+pip install -r requirements.txt
 
 Repeat for each Google Drive account.
 
-**Verify remotes:**
-```powershell
+# Run the application
+
+python app_flet_restored.py**Verify remotes:**
+
+``````powershell
+
 rclone listremotes
+
+---```
+
+
+
+## 📋 System RequirementsYou should see:
+
 ```
 
-You should see:
-```
-gdrive1:
-gdrive2:
-gdrive3:
-```
+| Component | Requirement |gdrive1:
 
-### Step 5: Configure Application
+|-----------|-------------|gdrive2:
+
+| **OS** | Windows 10/11 (64-bit) |gdrive3
+
+| **Python** | 3.13+ (for source) |```
+
+| **RAM** | 4 GB minimum, 8 GB recommended |
+
+| **Storage** | 500 MB for installation |### Step 5: Configure Application
+
+| **Internet** | Required for cloud operations |
 
 Copy the example configuration:
-```powershell
+
+---```powershell
+
 cp config\drives.example.json config\drives.json
+
+## 🚀 Quick Start Guide```
+
+
+
+### 1️⃣ First LaunchEdit `config\drives.json`:
+
+- Application opens to clean dashboard```json
+
+- No configuration required initially{
+
+  "drives": [
+
+### 2️⃣ Add Google Drive    {
+
+1. Click **"Drives"** in sidebar      "name": "drive1",
+
+2. Click **"Add Google Drive"**      "remote_name": "gdrive1",
+
+3. Enter a friendly name (e.g., "Personal Drive")      "enabled": true,
+
+4. Choose authentication method:      "description": "Primary Google Drive"
+
+   - **Default OAuth**: Use built-in credentials    },
+
+   - **Custom OAuth**: Provide your own Client ID/Secret    {
+
+5. Complete Google authentication in browser      "name": "drive2",
+
+6. Drive appears in list ✅      "remote_name": "gdrive2",
+
+      "enabled": true,
+
+### 3️⃣ Upload Files      "description": "Secondary Google Drive"
+
+1. Click **"Upload"** in sidebar    },
+
+2. Select files to upload    {
+
+3. Choose target Google Drive      "name": "drive3",
+
+4. Files enter upload queue      "remote_name": "gdrive3",
+
+5. Monitor progress in real-time      "enabled": true,
+
+      "description": "Backup Google Drive"
+
+### 4️⃣ Browse & Download    }
+
+1. Click **"Library"** in sidebar  ],
+
+2. Select a drive to browse  "settings": {
+
+3. Multi-select files with checkboxes    "chunk_size_mb": 100,
+
+4. Click **"Download Selected"**    "max_concurrent_uploads": 3,
+
+5. Files download to `downloads/` folder    "upload_folder": "MultiDriveSplit",
+
+    "manifest_folder": "manifests",
+
+---    "temp_folder": "chunks"
+
+  }
+
+## 📚 Documentation}
+
 ```
 
-Edit `config\drives.json`:
-```json
-{
-  "drives": [
-    {
-      "name": "drive1",
-      "remote_name": "gdrive1",
-      "enabled": true,
-      "description": "Primary Google Drive"
-    },
-    {
-      "name": "drive2",
-      "remote_name": "gdrive2",
-      "enabled": true,
-      "description": "Secondary Google Drive"
-    },
-    {
-      "name": "drive3",
-      "remote_name": "gdrive3",
-      "enabled": true,
-      "description": "Backup Google Drive"
-    }
-  ],
-  "settings": {
-    "chunk_size_mb": 100,
-    "max_concurrent_uploads": 3,
-    "upload_folder": "MultiDriveSplit",
-    "manifest_folder": "manifests",
-    "temp_folder": "chunks"
-  }
-}
-```
+Comprehensive documentation available in the [`docs/`](docs/) folder:
 
 **Important:** Match `remote_name` values with your rclone remote names!
 
-### Step 6: Run Application
-```powershell
-python main.py
-```
+- [📖 Complete Setup Guide](docs/SETUP.md)
+
+- [🏗️ Build Instructions](docs/BUILD.md)### Step 6: Run Application
+
+- [📝 Changelog](docs/CHANGELOG.md)```powershell
+
+- [🔧 Rclone Configuration](docs/RCLONE_SETUP.md)python main.py
+
+- [⚡ Performance Optimization](docs/PERFORMANCE_GUIDE.md)```
+
+- [🎯 Quick Reference](docs/QUICK_REFERENCE.md)
 
 ## 📖 Usage Guide
 
-### Uploading Files
+**Version-Specific Notes:**
 
-**Method 1: Drag & Drop**
+- [Version 3.0.4 Release Notes](VERSION_3.0.4.md) - Terminal popup fix### Uploading Files
+
+- [Version 3.0.3 Release Notes](docs/VERSION_3.0.3.md) - Code restoration
+
+- [Version 2 Features](docs/V2_FEATURES.md)**Method 1: Drag & Drop**
+
 1. Open the application
-2. Go to the **Upload** tab
+
+---2. Go to the **Upload** tab
+
 3. Drag and drop any file onto the drop zone
-4. Upload starts automatically
 
-**Method 2: Browse**
-1. Click **Browse for File** button
-2. Select your file
-3. Upload starts automatically
+## 🛠️ Technology Stack4. Upload starts automatically
 
-**What happens during upload:**
-1. File is hashed (SHA-256)
+
+
+| Component | Technology |**Method 2: Browse**
+
+|-----------|------------|1. Click **Browse for File** button
+
+| **UI Framework** | [Flet 0.28.3](https://flet.dev/) (Flutter-based) |2. Select your file
+
+| **Language** | Python 3.13 |3. Upload starts automatically
+
+| **Cloud Backend** | [Rclone](https://rclone.org/) |
+
+| **Packaging** | PyInstaller 6.16.0 |**What happens during upload:**
+
+| **Installer** | Inno Setup 6.5.4 |1. File is hashed (SHA-256)
+
 2. File is split into chunks (default: 100 MB each)
-3. Chunks are distributed across drives in round-robin
+
+---3. Chunks are distributed across drives in round-robin
+
 4. Manifest file is created in `manifests/` folder
-5. All chunks uploaded concurrently
+
+## 🐛 Known Issues & Limitations5. All chunks uploaded concurrently
+
 6. Temporary chunks are cleaned up
 
-### Downloading Files
+### Current Known Issues
 
-1. Go to the **Download** tab
+- ⚠️ Rclone must be installed separately and in PATH### Downloading Files
+
+- ⚠️ Google Drive OAuth requires browser access
+
+- ⚠️ Large file uploads may take time depending on internet speed1. Go to the **Download** tab
+
 2. Click **Refresh** to see available files
-3. Select a file from the list
-4. Click **Download Selected**
-5. Choose save location
-6. File is reconstructed automatically
+
+### Planned Improvements3. Select a file from the list
+
+- [ ] Bundled Rclone executable4. Click **Download Selected**
+
+- [ ] Support for OneDrive, Dropbox5. Choose save location
+
+- [ ] File synchronization features6. File is reconstructed automatically
+
+- [ ] Scheduled uploads/backups
 
 **What happens during download:**
-1. All chunks downloaded concurrently
+
+---1. All chunks downloaded concurrently
+
 2. Chunks are verified (SHA-256)
-3. Chunks are merged in correct order
+
+## 🤝 Contributing3. Chunks are merged in correct order
+
 4. Final file hash is verified
-5. Temporary files are cleaned up
 
-### Settings
+We welcome contributions! Here's how you can help:5. Temporary files are cleaned up
 
-The **Settings** tab shows:
-- Configured rclone remotes
-- Enabled drives
+
+
+1. **Fork** the repository### Settings
+
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)The **Settings** tab shows:
+
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)- Configured rclone remotes
+
+5. **Open** a Pull Request- Enabled drives
+
 - Current application settings
+
+### Development Setup
 
 Click **Configure Rclone Remotes** to add/modify remotes.
 
-## 📁 Project Structure
+```bash
 
-```
+# Clone your fork## 📁 Project Structure
+
+git clone https://github.com/YOUR_USERNAME/jagyaa.git
+
+cd jagyaa```
+
 jagyaa/
-├── main.py                 # Application entry point
-├── requirements.txt        # Python dependencies
+
+# Install development dependencies├── main.py                 # Application entry point
+
+pip install -r requirements.txt├── requirements.txt        # Python dependencies
+
 ├── README.md              # This file
-├── .gitignore
-│
+
+# Run from source├── .gitignore
+
+python app_flet_restored.py│
+
 ├── config/
-│   ├── drives.json        # Drive configuration (user-created)
-│   ├── drives.example.json # Configuration template
+
+# Build executable│   ├── drives.json        # Drive configuration (user-created)
+
+pyinstaller MultiDriveCloudManager.spec│   ├── drives.example.json # Configuration template
+
 │   └── rclone.conf        # Rclone config (auto-generated)
-│
-├── core/                  # Core business logic
-│   ├── __init__.py
-│   ├── chunker.py         # File splitting/merging
+
+# Create installer│
+
+# (Requires Inno Setup installed)├── core/                  # Core business logic
+
+"C:\Program Files (x86)\Inno Setup 6\ISCC.exe" installer\MultiDriveCloudManager.iss│   ├── __init__.py
+
+```│   ├── chunker.py         # File splitting/merging
+
 │   ├── config_manager.py  # Configuration handling
-│   ├── rclone_manager.py  # Rclone operations
+
+---│   ├── rclone_manager.py  # Rclone operations
+
 │   ├── manifest.py        # Manifest management
-│   ├── uploader.py        # Upload orchestration
+
+## 📄 License│   ├── uploader.py        # Upload orchestration
+
 │   └── downloader.py      # Download orchestration
-│
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.│
+
 ├── gui/                   # User interface
-│   ├── __init__.py
-│   └── main_window.py     # Main application window
+
+```│   ├── __init__.py
+
+MIT License│   └── main_window.py     # Main application window
+
 │
-├── manifests/             # Upload manifests (auto-created)
+
+Copyright (c) 2025 Het Charusat├── manifests/             # Upload manifests (auto-created)
+
 │   └── *.json
-│
-├── chunks/                # Temporary chunk storage (auto-created)
-└── downloads/             # Default download location
-```
 
-## ⚙️ Configuration Options
+Permission is hereby granted, free of charge, to any person obtaining a copy│
 
-Edit `config/drives.json` to customize:
+of this software and associated documentation files (the "Software"), to deal├── chunks/                # Temporary chunk storage (auto-created)
 
-| Setting | Description | Default |
+in the Software without restriction, including without limitation the rights└── downloads/             # Default download location
+
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell```
+
+copies of the Software...
+
+```## ⚙️ Configuration Options
+
+
+
+---Edit `config/drives.json` to customize:
+
+
+
+## 🙏 Acknowledgments| Setting | Description | Default |
+
 |---------|-------------|---------|
-| `chunk_size_mb` | Size of each chunk in MB | 100 |
-| `max_concurrent_uploads` | Parallel upload threads | 3 |
-| `upload_folder` | Folder name on remote drives | MultiDriveSplit |
-| `manifest_folder` | Local manifest storage | manifests |
+
+- **[Rclone](https://rclone.org/)** - The backbone of cloud operations| `chunk_size_mb` | Size of each chunk in MB | 100 |
+
+- **[Flet](https://flet.dev/)** - Beautiful cross-platform UI framework| `max_concurrent_uploads` | Parallel upload threads | 3 |
+
+- **[PyInstaller](https://pyinstaller.org/)** - Python to executable packaging| `upload_folder` | Folder name on remote drives | MultiDriveSplit |
+
+- **Google Drive API** - Cloud storage integration| `manifest_folder` | Local manifest storage | manifests |
+
 | `temp_folder` | Temporary chunk storage | chunks |
+
+---
 
 ## 🔧 Advanced Usage
 
+## 📞 Support & Contact
+
 ### CLI Mode (Future Enhancement)
 
-The core modules can be used independently:
+- **Issues**: [GitHub Issues](https://github.com/hetcharusat/jagyaa/issues)
+
+- **Discussions**: [GitHub Discussions](https://github.com/hetcharusat/jagyaa/discussions)The core modules can be used independently:
+
+- **Email**: [Your Email Here]
 
 ```python
-from core import ConfigManager, RcloneManager, ManifestManager, Uploader
 
-config = ConfigManager()
+---from core import ConfigManager, RcloneManager, ManifestManager, Uploader
+
+
+
+## 📊 Project Statsconfig = ConfigManager()
+
 rclone = RcloneManager(config_path=config.get_rclone_config_path())
-manifest = ManifestManager(config.get_manifest_folder())
-uploader = Uploader(config, rclone, manifest)
+
+![GitHub stars](https://img.shields.io/github/stars/hetcharusat/jagyaa?style=social)manifest = ManifestManager(config.get_manifest_folder())
+
+![GitHub forks](https://img.shields.io/github/forks/hetcharusat/jagyaa?style=social)uploader = Uploader(config, rclone, manifest)
+
+![GitHub watchers](https://img.shields.io/github/watchers/hetcharusat/jagyaa?style=social)
 
 # Upload a file
-manifest_id = uploader.upload_file("large_file.zip")
+
+---manifest_id = uploader.upload_file("large_file.zip")
+
 print(f"Uploaded: {manifest_id}")
-```
 
-### Manifest File Structure
+## 🎉 Version History```
 
-Each upload creates a JSON manifest in `manifests/`:
+
+
+### v3.0.4 (2025-01-19) - Current### Manifest File Structure
+
+- 🔧 **Fixed**: Terminal window popups during operations
+
+- ✅ **Added**: Comprehensive subprocess window suppressionEach upload creates a JSON manifest in `manifests/`:
+
+- 🎯 **Improved**: Silent operation on all cloud interactions
 
 ```json
-{
-  "manifest_id": "myfile_20251018_143022",
-  "version": "1.0",
-  "created_at": "2025-10-18T14:30:22",
+
+### v3.0.3 (2025-01-18){
+
+- 🔄 **Restored**: Complete codebase (4,640 lines)  "manifest_id": "myfile_20251018_143022",
+
+- 🛠️ **Fixed**: Syntax errors and indentation issues  "version": "1.0",
+
+- ✅ **Verified**: All features working correctly  "created_at": "2025-10-18T14:30:22",
+
   "original_file": {
-    "filename": "myfile.zip",
-    "path": "/full/path/to/myfile.zip",
-    "size": 524288000,
+
+### v3.0.2 (2025-01-17)    "filename": "myfile.zip",
+
+- ⚠️ **Attempted**: Bug fixes but broke app launch    "path": "/full/path/to/myfile.zip",
+
+- 🚫 **Status**: Deprecated    "size": 524288000,
+
     "size_formatted": "500.00 MB",
-    "hash": "abc123..."
-  },
-  "chunks": [
+
+### v3.0.1 (2025-01-16)    "hash": "abc123..."
+
+- 🎉 **Initial**: Public release  },
+
+- 📦 **Features**: Core functionality complete  "chunks": [
+
     {
-      "index": 0,
+
+---      "index": 0,
+
       "filename": "myfile.part0000.zip.chunk",
-      "size": 104857600,
+
+<div align="center">      "size": 104857600,
+
       "hash": "def456...",
-      "drive": "drive1",
+
+**Made with ❤️ by Het Charusat**      "drive": "drive1",
+
       "remote_path": "MultiDriveSplit/myfile.part0000.zip.chunk",
-      "status": "uploaded",
+
+⭐ Star this repo if you find it useful!      "status": "uploaded",
+
       "uploaded_at": "2025-10-18T14:35:00"
-    }
+
+[Download Latest Release](https://github.com/hetcharusat/jagyaa/releases) • [Report Bug](https://github.com/hetcharusat/jagyaa/issues) • [Request Feature](https://github.com/hetcharusat/jagyaa/issues)    }
+
   ],
-  "total_chunks": 5,
+
+</div>  "total_chunks": 5,
+
   "status": "completed"
 }
 ```

@@ -178,6 +178,10 @@ class ConfigManager:
     def get_temp_folder(self) -> str:
         """Get temporary chunks folder"""
         return self.get_setting("temp_folder", "chunks")
+
+    def get_preview_folder(self) -> str:
+        """Get preview images folder (for thumbnails)"""
+        return str(self.config_dir.parent / "previews")
     
     def rclone_config_exists(self) -> bool:
         """Check if rclone config file exists"""
@@ -197,6 +201,21 @@ class ConfigManager:
 
     def _detect_rclone_path(self) -> str | None:
         """Try to auto-detect rclone.exe on Windows (winget typical location)"""
+        # 1) Prefer an rclone.exe bundled next to the app executable (PyInstaller) or repo root
+        try:
+            exe_dir = Path(getattr(__import__('sys'), 'frozen', False) and __import__('sys')._MEIPASS or Path(__file__).resolve().parents[1])
+            # Check sibling of app exe or project root for rclone.exe
+            candidates = [
+                exe_dir / 'rclone.exe',
+                Path(__file__).resolve().parents[2] / 'rclone.exe',  # repo root
+                Path.cwd() / 'rclone.exe',
+            ]
+            for c in candidates:
+                if c.exists():
+                    return str(c)
+        except Exception:
+            pass
+        # 2) PATH lookup
         try:
             # Preferred: on PATH
             from shutil import which
@@ -205,7 +224,7 @@ class ConfigManager:
                 return path
         except Exception:
             pass
-        # Fallback: search WinGet directory
+        # 3) Fallback: search WinGet directory
         base = Path(os.environ.get("LOCALAPPDATA", "")) / "Microsoft" / "WinGet" / "Packages"
         try:
             for p in base.rglob("rclone.exe"):
