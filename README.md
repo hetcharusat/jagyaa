@@ -1,8 +1,10 @@
-# 🌐 Multi-Drive Cloud Manager# 🚀 Multi-Google Drive Split Uploader
+# 🚀 Multi-Google Drive Split Uploader
 
 
 
-[![Version](https://img.shields.io/badge/version-3.0.4-blue.svg)](https://github.com/hetcharusat/jagyaa/releases)A lightweight desktop application that uploads and downloads large files across **multiple Google Drive accounts** using intelligent chunking and distribution.
+[![Version](https://img.shields.io/badge/version-3.0.4-blue.svg)](https://github.com/hetcharusat/jagyaa/releases)
+
+A lightweight desktop application that uploads and downloads large files across **multiple Google Drive accounts** using intelligent chunking and distribution.
 ## Multi-Drive Cloud Manager
 
 Fast, clean desktop app to manage multiple Google Drives. No admin required. Windows only.
