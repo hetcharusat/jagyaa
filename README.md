@@ -14,7 +14,15 @@ Fast, clean desktop app to manage multiple Google Drives. No admin required. Win
   
 </a>
 
+
+
+
 </div>
+
+### How To Setup
+
+https://github.com/user-attachments/assets/3013c6ac-761f-4d84-8393-9b9058c0e071
+
 
 ### Features
 - Multiple Google Drive accounts
