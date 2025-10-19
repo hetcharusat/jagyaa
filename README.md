@@ -3,310 +3,42 @@
 
 
 [![Version](https://img.shields.io/badge/version-3.0.4-blue.svg)](https://github.com/hetcharusat/jagyaa/releases)A lightweight desktop application that uploads and downloads large files across **multiple Google Drive accounts** using intelligent chunking and distribution.
+## Multi-Drive Cloud Manager
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+Fast, clean desktop app to manage multiple Google Drives. No admin required. Windows only.
 
-[![Python](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-blue)
+<div align="center">
 
-[![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)![Python](https://img.shields.io/badge/python-3.8%2B-green)
+<a href="https://github.com/hetcharusat/jagyaa/releases/latest">
+  <img src="https://img.shields.io/badge/Download-Windows%20Installer-blue?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" />
+  
+</a>
 
-![License](https://img.shields.io/badge/license-MIT-orange)
+</div>
 
-A powerful, beautiful desktop application for managing multiple cloud storage accounts with intelligent chunking, upload/download queues, and seamless OAuth authentication.
+### Features
+- Multiple Google Drive accounts
+- Upload/Download queues with progress
+- OAuth login (supports custom Client ID/Secret)
+- Clean modern UI (Flet)
+- No console popups (v3.0.4)
 
-## ✨ Features
+### Install
+1) Download the installer (button above)  
+2) Run and follow the wizard  
+3) Launch from Start Menu
 
-![Multi-Drive Cloud Manager](https://via.placeholder.com/800x450/0d47a1/ffffff?text=Multi-Drive+Cloud+Manager)
+Requirements: Windows 10/11, internet, and [rclone](https://rclone.org/) in PATH.
 
-- 📦 **Intelligent File Chunking** - Automatically split large files into configurable chunks
-
----- ☁️ **Multi-Drive Distribution** - Distribute chunks across multiple Google Drive accounts
-
-- 🔒 **Integrity Verification** - SHA-256 hashing ensures data integrity
-
-## 📥 Download- ⚡ **Concurrent Operations** - Parallel upload/download for maximum speed
-
-- 🎯 **Drag & Drop Interface** - Simple and intuitive GUI
-
-<div align="center">- 📊 **Progress Tracking** - Real-time progress bars and status updates
-
-- 🔄 **Pause/Resume** - Cancel operations at any time
-
-### ⚡ Latest Release: v3.0.4 (January 19, 2025)- 📝 **Manifest System** - JSON-based metadata for easy file reconstruction
-
-
-
-<a href="https://github.com/hetcharusat/jagyaa/releases/download/v3.0.4/MultiDriveCloudManager_Setup_3.0.4.exe">## 🏗️ Architecture
-
-  <img src="https://img.shields.io/badge/Download-Setup%20(51.5%20MB)-brightgreen?style=for-the-badge&logo=windows&logoColor=white" alt="Download Installer" height="60">
-
-</a>```
-
-┌─────────────────┐
-
-**No admin rights required • Clean installation • All features included**│   PySide6 GUI   │  ← User Interface
-
-├─────────────────┤
-
-</div>│  Uploader/      │  ← Business Logic
-
-│  Downloader     │
-
----├─────────────────┤
-
-│  File Chunker   │  ← Core Operations
-
-## ✨ Features│  Manifest Mgr   │
-
-├─────────────────┤
-
-### 🚀 Core Capabilities│ Rclone Manager  │  ← Backend Integration
-
-- **Multi-Account Management**: Connect unlimited Google Drive accounts└─────────────────┘
-
-- **Intelligent File Chunking**: Automatically split large files for reliable uploads         ↓
-
-- **Upload Queue System**: Queue multiple files with progress tracking   Google Drives
-
-- **Download Queue**: Download files directly from cloud with live progress```
-
-- **Multi-Select Operations**: Select and manage multiple files at once
-
-## 📋 Prerequisites
-
-### 🎨 Modern Interface
-
-- **Beautiful Material Design**: Clean, intuitive Flet-based UI### 1. Python 3.8 or Higher
-
-- **Dark/Light Themes**: Switch between themes on the fly```powershell
-
-- **Real-time Progress**: Live upload/download progress with speed indicatorspython --version
-
-- **Library Cards View**: Visual file browsing with metadata```
-
-
-
-### 🔐 Authentication & Security### 2. Rclone
-
-- **OAuth 2.0 Integration**: Secure Google Drive authenticationDownload and install from [rclone.org](https://rclone.org/downloads/)
-
-- **Custom OAuth Support**: Use your own Google API credentials
-
-- **Token Management**: Automatic token refresh and error handling**Windows Installation:**
-
-- **No Config Bundling**: Fresh start on every installation```powershell
-
-# Download rclone and add to PATH, or:
-
-### 💪 Advanced Featureswinget install Rclone.Rclone
-
-- **Retry System**: Automatic retry for failed uploads```
-
-- **Drive Health Monitoring**: Real-time storage statistics
-
-- **Permanent Delete**: Bypass trash for immediate deletionVerify installation:
-
-- **Wipe Data**: Clean uploaded files from cloud```powershell
-
-- **Smart Preview**: Preview files before downloadingrclone version
-
+### Run from source (optional)
 ```
-
----
-
-### 3. Google Drive Accounts
-
-## 🖼️ ScreenshotsYou'll need at least 2-3 Google Drive accounts configured in rclone.
-
-
-
-<details>## 🚀 Quick Start
-
-<summary>📸 Click to view screenshots</summary>
-
-### Step 1: Clone or Extract Project
-
-### Dashboard```powershell
-
-![Dashboard View](https://via.placeholder.com/800x450/1976d2/ffffff?text=Dashboard+View)cd C:\Users\hetp2\OneDrive\Desktop\jagyaa
-
-```
-
-### Upload Queue
-
-![Upload Queue](https://via.placeholder.com/800x450/388e3c/ffffff?text=Upload+Queue)### Step 2: Create Virtual Environment
-
-```powershell
-
-### Library Browserpython -m venv venv
-
-![Library Browser](https://via.placeholder.com/800x450/f57c00/ffffff?text=Library+Browser).\venv\Scripts\Activate.ps1
-
-```
-
-</details>
-
-### Step 3: Install Dependencies
-
----```powershell
-
+python -m venv .venv
+.venv\Scripts\activate
 pip install -r requirements.txt
-
-## 🔧 Installation```
-
-
-
-### Option 1: Installer (Recommended)### Step 4: Configure Rclone Remotes
-
-
-
-1. **Download** the latest installer from the [Releases page](https://github.com/hetcharusat/jagyaa/releases)Run rclone configuration:
-
-2. **Run** `MultiDriveCloudManager_Setup_3.0.4.exe````powershell
-
-3. **Follow** the installation wizardrclone config
-
-4. **Launch** from Start Menu or Desktop shortcut```
-
-
-
-**Installation Path:** `%LOCALAPPDATA%\MultiDriveCloudManager\`**Add each Google Drive:**
-
-1. Type `n` for new remote
-
-### Option 2: Run from Source2. Name it (e.g., `gdrive1`, `gdrive2`, `gdrive3`)
-
-3. Choose `Google Drive` (option 15)
-
-```bash4. Leave Client ID blank (press Enter)
-
-# Clone the repository5. Leave Client Secret blank (press Enter)
-
-git clone https://github.com/hetcharusat/jagyaa.git6. Choose scope `1` (Full access)
-
-cd jagyaa7. Leave Root Folder ID blank
-
-8. Leave Service Account File blank
-
-# Create virtual environment9. Edit advanced config? `n`
-
-python -m venv .venv10. Auto config? `y` (browser will open)
-
-.venv\Scripts\activate11. Authenticate with your Google account
-
-12. Configure as Team Drive? `n`
-
-# Install dependencies13. Confirm settings
-
-pip install -r requirements.txt
-
-Repeat for each Google Drive account.
-
-# Run the application
-
-python app_flet_restored.py**Verify remotes:**
-
-``````powershell
-
-rclone listremotes
-
----```
-
-
-
-## 📋 System RequirementsYou should see:
-
+python app_flet_restored.py
 ```
 
-| Component | Requirement |gdrive1:
-
-|-----------|-------------|gdrive2:
-
-| **OS** | Windows 10/11 (64-bit) |gdrive3
-
-| **Python** | 3.13+ (for source) |```
-
-| **RAM** | 4 GB minimum, 8 GB recommended |
-
-| **Storage** | 500 MB for installation |### Step 5: Configure Application
-
-| **Internet** | Required for cloud operations |
-
-Copy the example configuration:
-
----```powershell
-
-cp config\drives.example.json config\drives.json
-
-## 🚀 Quick Start Guide```
-
-
-
-### 1️⃣ First LaunchEdit `config\drives.json`:
-
-- Application opens to clean dashboard```json
-
-- No configuration required initially{
-
-  "drives": [
-
-### 2️⃣ Add Google Drive    {
-
-1. Click **"Drives"** in sidebar      "name": "drive1",
-
-2. Click **"Add Google Drive"**      "remote_name": "gdrive1",
-
-3. Enter a friendly name (e.g., "Personal Drive")      "enabled": true,
-
-4. Choose authentication method:      "description": "Primary Google Drive"
-
-   - **Default OAuth**: Use built-in credentials    },
-
-   - **Custom OAuth**: Provide your own Client ID/Secret    {
-
-5. Complete Google authentication in browser      "name": "drive2",
-
-6. Drive appears in list ✅      "remote_name": "gdrive2",
-
-      "enabled": true,
-
-### 3️⃣ Upload Files      "description": "Secondary Google Drive"
-
-1. Click **"Upload"** in sidebar    },
-
-2. Select files to upload    {
-
-3. Choose target Google Drive      "name": "drive3",
-
-4. Files enter upload queue      "remote_name": "gdrive3",
-
-5. Monitor progress in real-time      "enabled": true,
-
-      "description": "Backup Google Drive"
-
-### 4️⃣ Browse & Download    }
-
-1. Click **"Library"** in sidebar  ],
-
-2. Select a drive to browse  "settings": {
-
-3. Multi-select files with checkboxes    "chunk_size_mb": 100,
-
-4. Click **"Download Selected"**    "max_concurrent_uploads": 3,
-
-5. Files download to `downloads/` folder    "upload_folder": "MultiDriveSplit",
-
-    "manifest_folder": "manifests",
-
----    "temp_folder": "chunks"
-
-  }
-
-## 📚 Documentation}
-
-```
-
-Comprehensive documentation available in the [`docs/`](docs/) folder:
+License: MIT. See [LICENSE](LICENSE).
 
 **Important:** Match `remote_name` values with your rclone remote names!
 
